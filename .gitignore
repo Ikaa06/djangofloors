@@ -128,3 +128,4 @@ dmypy.json
 botimg/*.*
 /poetry.lock
 media/*
+/Home/migrations/*

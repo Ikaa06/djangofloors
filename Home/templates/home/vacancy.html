@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ vacancy.name|lower|capfirst }}{% endblock %}
+{% block metategi %}
+    <meta name="description" content="{{ vacancy.seo_description }}">
+    <meta name="keywords" content="{{ vacancy.seo_keywords }}">
+{% endblock %}
+{% block content %}
+
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="{% url 'index' %}">Главная</a>
+                <a href="{% url 'vacancies' %}">Вакансии</a>
+                <span>{{ vacancy.name|lower|capfirst }}</span>
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <h2>{{ vacancy.name }}</h2>
+                </div>
+                <div class="col-lg-5 text-lg-right">
+                    <h2>от {{ vacancy.price }} Руб.</h2>
+                </div>
+            </div>
+            <div class="vacancy">
+                <div class="d-md-flex">
+                    <div>
+                        <div class="vacancy-term">
+                            <div class="vacancy-context">Требования</div>
+                            <ul class="vacancy-ul">
+                                {% for i in vacancy.requirement_set.all %}
+                                <li>– {{ i.description }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="vacancy-term">
+                            <div class="vacancy-context">Что нужно делать</div>
+                            <ul class="vacancy-ul">
+                                {% for i in vacancy.tasks_set.all %}
+                                <li>– {{ i.description }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="vacancy-term">
+                            <div class="vacancy-context">Условия работы</div>
+                            <ul class="vacancy-ul">
+                                {% for i in vacancy.conditions_set.all %}
+                                <li>– {{ i.description }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ml-auto order-form align-self-start">
+                        <div class="order-title">
+                            Вы подходите? Оставьте заявку
+                        </div>
+                        <form method="post" action="{% url 'add_resume' %}" id="form_add_resume">
+                            {% csrf_token %}
+                            <input class="form-field" type="text" placeholder="Ваше имя*" name="name">
+                            <input class="form-field" type="tel" placeholder="Введите номер телефона*" name="phone">
+                            <input class="form-field mt-3" type="text" placeholder="Ссылка на резюме" name="url">
+                            <button class="order-btn">Откликнуться на вакансию</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+{% endblock %}

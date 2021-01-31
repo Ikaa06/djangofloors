@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block metategi %}
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="{% url 'index' %}">Главная</a>
+            <span>Контакты</span>
+        </div>
+    </div>
+{% endblock %}

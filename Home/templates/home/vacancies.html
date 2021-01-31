@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block metategi %}
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="{% url 'index' %}">Главная</a>
+            <span>Вакансии</span>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Вакансии в компании
+                    «Промышленные полы»
+                </h2>
+            </div>
+            <div class="col-lg-6 pt-3">
+                <div class="sf-content">
+                    Мы публикуем вакансии регулярно. Присоединяйтесь к нам.
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 main-banner">
+            <img src="{% static 'photo/banner-2.png' %}" class="img-fluid">
+        </div>
+        <div class="vacancies-list">
+            <h2>Вакансии</h2>
+            {% for vacancy in vacancies %}
+                <div class="vacancy-item">
+                    <div class="row">
+                        <div class="col-xl-9 col-lg-8 col-md-7">
+                            <a href="{{ vacancy.get_absolute_url }}" class="vacancy-title">{{ vacancy.name }}</a>
+                            <div class="sf-content vacancy-description">{{ vacancy.description }}
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-5">
+                            <div class="vacancy-salary">
+                                от {{ vacancy.price }} Руб.
+                            </div>
+                            <a href="{{ vacancy.get_absolute_url }}" class="vacancy-more">
+                                Посмотреть вакансию
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

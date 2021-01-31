@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% load my_filters %}
+{% load static %}
+{% block title %}{{ solutions.title }}{% endblock %}
+{% block metategi %}
+    <meta name="description" content="{{ solutions.seo_description }}">
+    <meta name="keywords" content="{{ solutions.seo_keywords }}">
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="{% url 'index' %}">Главная</a>
+            <a href="{% url 'ready_solutions' %}">Готовые решения</a>
+            <span>{{ solutions.title }}</span>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <h2>Полы для {{ solutions.title|inflect_name:'plur,gent' }}
+                    по России от {{ solutions.price }} руб/м2
+                </h2>
+            </div>
+            <div class="col-md-5 mt-3 mt-md-0">
+                <div class="row sf-content fs-16">
+                    {% for plus in solutions.pluses_set.all %}
+                        <div class="d-flex d-lg-block col-lg-5 mt-3 mt-md-0">
+                            <div class="mr-3"><img src="{% static 'img/top-arrow.png' %}"></div>
+                            <div class="mt-lg-3">{{ plus.description }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 main-banner">
+            <img src="{{ solutions.images_fon.url }}" class="img-fluid">
+        </div>
+        <div class="about-project">
+            <h2>Готовое решение пола для {{ solutions.title|inflect_name:'sing,gent' }}</h2>
+            <div class="row mt-5">
+                <div class="col-lg-3">
+                    <h3>Описание</h3>
+                </div>
+                <div class="col-lg-7">
+                    <div class="sf-content">
+                        Основой любого пола является существующее<br> основание:
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="text-block-grey">
+                                {{ solutions.description_os_1 }}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-block-grey">
+                                {{ solutions.description_os_2 }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-project-carousel mt-4">
+                <div id="aboutProjectCarousel" class="carousel-590 carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for slider in solutions.slidersolutionsos_set.all %}
+                            <div class="carousel-item {% if slider.first %}active{% endif %}">
+                                <img src="{{ slider.img.url }}" class="img-fluid">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-2">
+                            <a href="#aboutProjectCarousel" class="arrow left" data-slide="prev">
+                            </a>
+                        </div>
+                        <div class="col-8 carousel-nav">
+                            <div class="carousel-indicators">
+                                {% for count in solutions.slidersolutionsos_set.count|times %}
+                                    <span data-target="#aboutProjectCarousel" data-slide-to="{{ count }}"
+                                          class="{% if slider.first %}active{% endif %}"></span>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        <div class="col-2 text-right">
+                            <a href="#aboutProjectCarousel" class="arrow right" data-slide="next">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="article-warehouse">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h3 class="line">{{ solutions.title_two }}</h3>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row sf-content">
+                        <div class="col-lg-4 col-md-6">
+                            {{ solutions.description_two_1 }}
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            {{ solutions.description_two_2 }}
+                        </div>
+                    </div>
+                    <img src="{{ solutions.images_two.url }}" class="img-fluid mt-4">
+                </div>
+            </div>
+        </div>
+        <div class="concreting">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h3>{{ solutions.title_three }}</h3>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row sf-content">
+                        <div class="col-md-6">
+                            {{ solutions.description_three_1 }}
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0 ">
+                            <div>
+                                {{ solutions.description_three_2 }}
+                            </div>
+                            <div class="red-frame mt-4">
+                                {{ solutions.description_three_3 }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="warehouse-space">
+            <h2>{{ solutions.title_four }}</h2>
+            <div class="row mt-5">
+                <div class="col-lg-3 col-md-6">
+                    <h3>{{ solutions.subtitle }}</h3>
+                    <img src="{{ solutions.images_four_1.url }}" class="img-fluid mt-2">
+                </div>
+                <div class="col-lg-3 col-md-6 pt-5 line-right">
+                    <ol class="sf-content">
+                        {% for name in solutions.demandssolutionone_set|order_all:'index' %}
+                            <li>{{ name.name }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <img src="{{ solutions.images_four_2.url }}" class="img-fluid mt-5">
+                </div>
+                <div class="col-lg-3 col-md-6 pt-5">
+                    <ol class="sf-content">
+                        {% for name in solutions.demandssolutiontwo_set|order_all:'index' %}
+                            <li>{{ name.name }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="advantages-warehouse mt-5">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="advantages-title">
+                                {{ solutions.demand }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <ul class="advantages-list mx-3">
+                                {% for dem in solutions.demandssolution_set.all %}
+                                    <li>
+                                    {{ dem.name }}
+                                    <div class="sf-content">{{ dem.description }}</div>
+                                </li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                        <div class="col sf-content mt-3">
+                            {{ solutions.description_finish }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'contact_us.html' %}
+
+{% endblock %}

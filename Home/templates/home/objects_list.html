@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock %}
+{% block metategi %}
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="ready-objects-top">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Готовые объекты наших
+                        клиентов
+                    </h2>
+                </div>
+                <div class="col-lg-6 pt-3">
+                    <div class="sf-content">
+                        Промышленные полы по России от 400 руб/м2
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 main-banner">
+            <img src="{% static 'photo/banner-3.png' %}" class="img-fluid">
+        </div>
+        <div class="our-objects">
+            <h2 class="mb-3">Мы реализовали эти проекты</h2>
+            <div class="row">
+                {% for object in object_list %}
+                <div class="col-lg-6 mt-3">
+                    <div class="object-item">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="{{object.get_absolute_url}}" class="object-item-title">
+                                    {{ object.name }}
+                                </a>
+                                <div class="row mt-3">
+                                    <div class="col-6 pr-0">
+                                        <div class="city sf-content">
+                                            {{ object.address }}
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="square sf-content">
+                                            {{ object.square }}м<sup>2</sup>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sf-content mt-3">
+                                    {{ object.description }}
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-3 mt-md-0 text-center text-md-right">
+                                <img src="{{ object.images.url }}" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

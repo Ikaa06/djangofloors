@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load my_filters %}
+{% load static %}
+{% block title %}{{ object.name }}{% endblock %}
+{% block metategi %}
+    <meta name="description" content="{{ object.seo_description }}">
+    <meta name="keywords" content="{{ object.seo_keywords }}">
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="{% url 'index' %}">Главная</a>
+            <a href="{% url 'ready_objects' %}">Объекты</a>
+            <span>{{ object.name }}</span>
+        </div>
+        <div class="d-md-flex d-block align-items-center">
+            <h2 class="col-md-7 p-0">Готовый объект {{ object.name|inflect_name:'sing,gent' }}</h2>
+            <div class="ml-auto text-left mt-3 mt-md-0">
+                <div class="sf-content">{{ object.address_all }}</div>
+                <a href="#" class="d-inline-block mt-3 button-calculation">
+                    Заказать расчет
+                </a>
+            </div>
+        </div>
+        <div class="mt-5 main-banner">
+            <img src="{{ object.banner.url }}" class="img-fluid">
+        </div>
+        <div class="about-project">
+            <h2>Мы хотим рассказать об этом проекте</h2>
+            <div class="row mt-5">
+                <div class="col-md-3">
+                    <h3>Перед нами поставили
+                        задачу</h3>
+                </div>
+                <div class="col-md-9">
+                    <div class="task-item">
+                        <div class="row">
+                            <div class="col-md-4 weight-500">{{ object.title_1 }}</div>
+                            <div class="col-md-8">
+                                <div class="sf-content mt-3 mt-md-0">
+                                    {{ object.description_1 }}
+                                </div>
+                                <img src="{{ object.images_main.url }}" class="img-fluid mt-3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-item">
+                        <div class="row">
+                            <div class="col-md-4 weight-500">{{ object.title_2 }}</div>
+                            <div class="col-md-8">
+                                <div class="sf-content mt-3 mt-md-0">
+                                    {{ object.description_2 }}
+                                </div>
+                                <img src="{{ object.images_main2.url }}" class="img-fluid mt-3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-item">
+                        <div class="row">
+                            <div class="col-md-4 weight-500">{{ object.title_3 }}</div>
+                            <div class="col-md-8">
+                                <div class="sf-content mt-3 mt-md-0">
+                                    {{ object.description_3 }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{ object.images_main3.url }}" class="img-fluid mt-3">
+                            </div>
+                            <div class="col-md-8">
+                                <img src="{{ object.images_main31.url }}" class="img-fluid mt-3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task-item">
+                        <div class="row">
+                            <div class="col-md-4 weight-500">{{ object.title_4 }}</div>
+                            <div class="col-md-8">
+                                <div class="sf-content mt-3 mt-md-0">
+                                    {{ object.description_4 }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-project-carousel mt-3">
+                <div id="aboutProjectCarousel" class="carousel-590 carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for  slider in object.sliderobject_set.all%}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <img src="{{ slider.img.url }}" class="img-fluid">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-2">
+                            <a href="#aboutProjectCarousel" class="arrow left" data-slide="prev">
+                            </a>
+                        </div>
+                        <div class="col-8 carousel-nav">
+                            <div class="carousel-indicators">
+                                {% for count in object.sliderobject_set.count|times %}
+                                <span data-target="#aboutProjectCarousel" data-slide-to="{{ count }}" class="{% if forloop.first %}active{% endif %}"></span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-2 text-right">
+                            <a href="#aboutProjectCarousel" class="arrow right" data-slide="next">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="examples-carousel">
+        <div class="container">
+            <h2 class="text-center">Фото объекта</h2>
+            <div id="parkingCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    {% for  slider in object.photoobject_set.all%}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ slider.img.url }}" class="img-fluid">
+                        <h3 class="mt-3 pr-5">{{ slider.title }}</h3>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="example-carousel-arrow">
+                    <a href="#parkingCarousel" class="arrow left" data-slide="prev">
+                    </a>
+                    <a href="#parkingCarousel" class="arrow right ml-4" data-slide="next">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'contact_us.html' %}
+
+{% endblock %}

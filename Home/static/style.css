@@ -1,0 +1,1248 @@
+body {
+    font-family: "TT Firs Neue", sans-serif;
+    color: #434049;
+    background: url("img/bg-1.png");
+}
+
+.overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #000000;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+a {
+    color: #434049;
+}
+
+a:hover {
+    color: #911E23;
+}
+
+.weight-500 {
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 30px;
+    line-height: 35px;
+}
+
+h2 .red {
+    padding: 5px;
+    background: #911E23;
+    color: #ffffff;
+    font-size: 25px;
+    line-height: 35px;
+}
+
+h3 {
+    font-size: 25px;
+    line-height: 32px;
+}
+
+main {
+    overflow: hidden;
+}
+
+.call-me {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.main-menu {
+    display: none;
+    position: fixed;
+    width: 65%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #FBFBFB;
+    z-index: 2;
+}
+
+.menu-item {
+    display: block;
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+a.menu-item:hover {
+    color: #ffffff;
+    background: #911E23;
+    text-decoration: none;
+}
+
+.burger-wrap {
+    position: absolute;
+    left: 10px;
+    top: 25px;
+    z-index: 2;
+}
+
+.burger img {
+    height: 42px;
+}
+
+.page-title {
+    margin-top: 30px;
+}
+
+.sf-content {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.arrow {
+    display: inline-block;
+    height: 16px;
+    width: 9px;
+    background: url("img/arrow-gray.png");
+}
+
+.arrow.right {
+    transform: rotate(180deg);
+}
+
+.arrow:hover {
+    background: url("img/arrow-red.png");
+}
+
+.main-banner {
+    position: relative;
+}
+
+.main-banner:before {
+    display: none;
+    position: absolute;
+    content: "";
+    height: 197px;
+    width: 203px;
+    right: -101px;
+    bottom: -95px;
+    background: url("img/cube-1.png");
+}
+
+.offers {
+    position: relative;
+    margin-top: 80px;
+}
+
+.offers:before,
+.vacancies-list:before,
+.activity-video:before,
+.concrete-carousel-block:before,
+.about-project:before {
+    display: none;
+    position: absolute;
+    content: "";
+    height: 95px;
+    width: 100px;
+    top: 50%;
+    left: -105px;
+    background: url("img/cube-2.png");
+}
+
+.offer-item {
+    padding: 30px 25px;
+    background: #FBFBFB;
+    border-radius: 10px;
+}
+
+.offer-title {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 30px;
+}
+
+.types {
+    margin-top: 60px;
+    padding: 80px 0 0;
+    background: url("img/bg-2.png");
+    background-size: cover;
+}
+
+.types h2 {
+    margin: 60px 0 20px;
+}
+
+.button-more {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #ffffff;
+    margin: 45px 0 20px;
+    padding: 15px 0;
+    background: #911E23;
+    text-align: center;
+    width: 224px;
+}
+
+
+.types .img-container {
+    display: flex;
+}
+
+.types .img-item {
+    width: 50%;
+}
+
+.types .small-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition-duration: .6s;
+    transition-property: opacity;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+    opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+    opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+}
+
+#typesCarousel .carousel-inner {
+    padding-bottom: 100px;
+}
+
+.types-arrows {
+    margin-top: 54px;
+}
+
+.projects {
+    margin-top: 60px;
+}
+
+.project-title {
+    display: block;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 32px;
+    margin: 20px 0 15px;
+}
+
+.project-item {
+    text-align: center;
+    padding: 30px;
+    border-top: 2px solid #E3E3E3;
+}
+
+.project-item img {
+    display: inline-block;
+}
+
+.project-title:hover {
+    text-decoration: none;
+}
+
+.contacts {
+    margin-top: 50px;
+    padding-bottom: 60px;
+}
+
+.contacts-header {
+    padding-bottom: 40px;
+    border-bottom: 2px solid #E3E3E3;
+}
+
+.button-pdf {
+    position: relative;
+    padding: 15px 20px 15px 56px;
+    background: #911E23;
+    font-weight: 500;
+    font-size: 16px !important;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+
+.button-pdf:hover {
+    color: #FFFFFF;
+}
+
+.button-pdf:before {
+    position: absolute;
+    content: "";
+    background: url("img/pdf.png");
+    width: 21px;
+    height: 19px;
+    top: 16px;
+    left: 20px;
+}
+
+.contacts-info {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.contacts a, .contacts span {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.contacts a:hover {
+    text-decoration: none;
+}
+
+.contacts-info .tel {
+    position: relative;
+    padding-left: 32px;
+}
+
+.contacts-info .tel:before {
+    position: absolute;
+    content: "";
+    background: url("img/Call.png");
+    width: 16px;
+    height: 16px;
+    top: 4px;
+    left: 0;
+}
+
+.contacts-info .mail {
+    position: relative;
+    padding-left: 32px;
+}
+
+.contacts-info .mail:before {
+    position: absolute;
+    content: "";
+    background: url("img/Message.png");
+    width: 16px;
+    height: 14px;
+    top: 4px;
+    left: 0;
+}
+
+.contacts-info .address {
+    position: relative;
+    padding-left: 32px;
+}
+
+.contacts-info .address:before {
+    position: absolute;
+    content: "";
+    background: url("img/Location.png");
+    width: 14px;
+    height: 16px;
+    top: 4px;
+    left: 0;
+}
+
+footer {
+    position: relative;
+    padding: 50px 0 45px;
+    background: #434049;
+    color: #FFFFFF;
+}
+
+footer:before {
+    position: absolute;
+    content: "";
+    background: url("img/cube-3.png");
+    width: 70px;
+    height: 67px;
+    top: -33px;
+    right: 30%;
+}
+
+.footer-text {
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 28px;
+    opacity: 0.75;
+}
+
+footer a {
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+footer a:hover {
+    color: #FFFFFF;
+    opacity: 0.75;
+    text-decoration: none;
+}
+
+.footer-menu-item {
+    display: block;
+    margin-top: 16px;
+}
+
+.footer-description {
+    font-size: 14px;
+    opacity: 0.75;
+}
+
+.footer-politic {
+    margin-top: 42px;
+    padding-top: 40px;
+    border-top: 1px solid #68646d;
+}
+
+.footer-politic a {
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+.footer-politic a:hover {
+    opacity: 1;
+}
+
+/*--------------VACANCIES--------------*/
+
+.breadcrumbs {
+    margin: 30px 0;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.breadcrumbs a {
+    padding-left: 28px;
+    padding-right: 8px;
+    position: relative;
+    color: #9C9C9C
+}
+
+.breadcrumbs a:hover {
+    color: #911E23;
+    text-decoration: none;
+}
+
+.breadcrumbs span {
+    padding-left: 28px;
+    position: relative;
+    color: #911E23;
+}
+
+.breadcrumbs a:before,
+.breadcrumbs span:before {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 1px;
+    top: 7px;
+    left: 0;
+    background: #911E23;
+}
+
+.breadcrumbs a:before {
+    background: #9C9C9C;
+}
+
+.breadcrumbs a:first-child {
+    padding-left: 0;
+}
+
+.breadcrumbs a:first-child:before {
+    display: none;
+}
+
+.vacancies-list {
+    position: relative;
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
+.vacancies-list h2 {
+    margin-bottom: 40px;
+}
+
+.vacancy-item {
+    padding: 30px;
+    border-top: 2px solid #E3E3E3;
+}
+
+.vacancy-item:last-child {
+    border-bottom: 2px solid #E3E3E3;
+}
+
+.vacancy-title,
+.vacancy-salary {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: 500;
+}
+
+.vacancy-title {
+    text-transform: uppercase;
+}
+
+.vacancy-salary {
+    margin-top: 25px;
+}
+
+.vacancy-title:hover {
+    color: #911E23;
+    text-decoration: none;
+}
+
+.vacancy-description {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 30px;
+}
+
+.vacancy-more {
+    display: inline-block;
+    margin-top: 25px;
+    font-weight: 500;
+    background: #FBFBFB;
+    padding: 15px 20px;
+}
+.vacancy-more:hover {
+    background: #911E23;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.vacancy {
+    margin-top: 40px;
+    border-top: 2px solid #E3E3E3;
+}
+
+.vacancy-term {
+    margin-bottom: 10px;
+}
+
+.vacancy-context {
+    padding-top: 30px;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+}
+
+.vacancy-ul {
+    margin-top: 30px;
+    padding-inline-start: 0;
+}
+
+.vacancy-ul li {
+    list-style: none;
+    font-size: 18px;
+    line-height: 40px;
+    font-family: "SF Pro Display", sans-serif;
+}
+
+
+.order-form {
+    margin-top: 30px;
+    padding: 30px 30px 40px;
+    background: #FBFBFB;
+}
+
+.order-title {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.form-field {
+    width: 100%;
+    padding: 20px 0 20px 25px;
+    background: #FBFBFB;
+    border: 1px solid #E3E3E3;
+}
+
+.form-field::placeholder {
+    color: #434049;
+}
+
+.order-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 20px 0;
+    background: #911E23;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    border: none;
+}
+
+/*--------------CONTACTS--------------*/
+
+.banking-details {
+    margin-top: 24px;
+}
+
+.banking-details-item {
+    padding: 20px 0;
+    border-top: 2px solid #E3E3E3;
+}
+
+.banking-details-item a {
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+
+/*--------------ABOUT-US--------------*/
+
+.activities {
+    margin-top: 90px;
+}
+
+.article {
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.article-text {
+    margin-top: 40px;
+}
+
+.activity-video {
+    position: relative;
+}
+
+.activity-carousel-wrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 265px;
+}
+
+.activity-carousel-title {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+    line-height: 23px;
+    font-weight: 500;
+}
+
+.tech-work {
+    margin: 90px 0;
+}
+
+.tech-work-stage {
+    padding: 40px 0;
+    border-bottom: 2px solid #E3E3E3;
+}
+
+.tech-work-stage:last-child {
+    border-bottom: none;
+}
+
+.persons {
+    position: relative;
+    background: #FBFBFB;
+    padding-top: 80px;
+}
+
+.persons:before {
+    position: absolute;
+    content: "";
+    background: url("img/cube-4.png");
+    width: 75px;
+    height: 70px;
+    top: -30px;
+    right: 20%;
+}
+
+.persons:after {
+    position: absolute;
+    content: "";
+    background: url("img/cube-5.png");
+    width: 103px;
+    height: 98px;
+    bottom: -40px;
+    left: 30%;
+
+}
+
+.person-text {
+    margin-top: 20px;
+    width: 265px;
+}
+
+.persons .contacts-info a {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.person-img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+#personsCarousel .carousel-inner {
+    overflow: visible;
+}
+
+#personsCarousel .carousel-item {
+    min-height: 485px;
+}
+
+.contact-us {
+    padding: 90px 0;
+}
+
+.form-small-text {
+    color: #9C9C9C;
+}
+
+.notepad {
+    position: relative;
+    display: none;
+}
+
+.notepad img {
+    position: absolute;
+    top: -155px;
+    left: 0;
+}
+
+/*--------------READY-OBJECTS--------------*/
+
+.ready-objects-top {
+   margin-top: 80px;
+}
+
+.our-objects {
+    margin-top: 90px;
+}
+
+.object-item {
+    padding: 30px 25px;
+    background: #FBFBFB;
+    border-radius: 10px;
+}
+
+.object-item-title {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 39px;
+}
+
+.object-item .city,
+.object-item .square {
+    position: relative;
+    padding-left: 25px;
+}
+
+.object-item .city:before {
+    position: absolute;
+    content: "";
+    background: url("img/Location.png");
+    width: 14px;
+    height: 16px;
+    top: 1px;
+    left: 0;
+}
+
+.object-item .square:before {
+    position: absolute;
+    content: "";
+    background: url("img/Plus.png");
+    width: 17px;
+    height: 17px;
+    top: 1px;
+    left: 0;
+    background-size: cover;
+}
+
+.object-item span {
+    color: #911E23;
+}
+
+/*--------------CONCRETE-FLOORS--------------*/
+
+.button-calculation {
+    padding: 15px 35px;
+    background: #911E23;
+    font-weight: 500;
+    font-size: 16px !important;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+
+.concrete-floors-tech {
+    margin-top: 90px;
+}
+
+.button-calculation:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.concrete-carousel-block {
+    position: relative;
+}
+
+.carousel-590 {
+    max-width: 590px;
+
+}
+
+#techCarousel {
+    margin: 80px auto;
+}
+
+.carousel-nav span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 6px;
+    background: #E3E3E3;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.carousel-nav span.active {
+    background: #911E23;
+    width: 8px;
+    height: 8px;
+}
+
+.reinforce {
+    padding-top: 153px;
+    background-size: cover;
+}
+
+.reinforce-block {
+    max-width: 315px;
+    background: #FFFFFF;
+    padding: 35px 25px 45px 25px;
+}
+
+.reinforce-fibra {
+    position: relative;
+    margin-top: 90px;
+}
+
+.reinforce-fibra:before {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 109px;
+    width: 118px;
+    right: -120px;
+    top: -50px;
+    background: url("img/cube-6.png");
+}
+
+.reinforce-fibra:after {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 80px;
+    width: 83px;
+    left: -100px;
+    bottom: 0;
+    background: url("img/cube-6.png");
+    background-size: contain;
+}
+
+.red-frame {
+    padding: 25px;
+    color: #FFFFFF;
+    background: #911E23;
+}
+
+.red-frame-title {
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.concreting {
+    position: relative;
+    margin: 90px 0 56px;
+}
+
+.concreting:before,
+.advantages-warehouse:before {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 172px;
+    width: 177px;
+    right: -180px;
+    top: 25%;
+    background: url("img/cube-7.png");
+    background-size: contain;
+}
+
+#concretingCarousel {
+    margin: 0 auto 64px;
+}
+
+.advantages {
+    position: relative;
+    max-width: 650px;
+    margin: 0 auto 90px;
+}
+
+.advantages:before {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 67px;
+    width: 70px;
+    left: -50%;
+    top: 45px;
+    background: url("img/cube-8.png");
+    background-size: contain;
+}
+
+.advantages-title {
+    padding: 25px;
+    background: #FBFBFB;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+.advantages-list {
+    padding-inline-start: 20px;
+}
+
+.advantages-list li {
+    position: relative;
+    list-style: none;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.advantages-list .sf-content {
+    font-weight: 400;
+}
+
+.advantages-list li::before {
+    position: absolute;
+    content: "";
+    width: 6px;
+    height: 6px;
+    top: 8px;
+    left: -18px;
+    background: #911E23;
+    border-radius: 10px;
+}
+
+.plus-item {
+    margin: 35px 20px 0;
+}
+
+.examples-carousel {
+    position: relative;
+    padding: 70px 0;
+    background: #FBFBFB;
+}
+
+.examples-carousel:after {
+    position: absolute;
+    content: "";
+    background: url("img/cube-3.png");
+    width: 70px;
+    height: 67px;
+    top: -30px;
+    right: 12%;
+}
+
+#exampleCarousel,
+#parkingCarousel{
+    position: relative;
+    max-width: 800px;
+    margin: 45px auto 0;
+}
+
+#exampleCarousel:before,
+#parkingCarousel:before {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 70px;
+    width: 75px;
+    left: -227px;
+    top: -110px;
+    background: url("img/cube-4.png");
+    background-size: contain;
+}
+
+.example-carousel-arrow {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+
+
+/*--------------READY-OBJECTS-PARKING--------------*/
+
+.about-project {
+    position: relative;
+    margin-top: 90px;
+}
+
+.task-item {
+    padding: 20px 0;
+    border-top: 2px solid #E3E3E3;
+}
+
+.about-project-carousel {
+    margin-bottom: 90px;
+}
+
+#aboutProjectCarousel {
+    margin: 0 auto;
+}
+
+/*--------------READY-SOLUTIONS--------------*/
+
+.mt-80 {
+    margin-top: 80px;
+}
+
+.offer-item:hover a {
+    color: #911E23;
+}
+
+.offer-item:hover svg path {
+    fill: #911E23 !important;
+}
+
+/*--------------READY-OBJECT-WAREHOUSE--------------*/
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.text-block-grey {
+    margin-top: 20px;
+    padding: 25px;
+    font-size: 20px;
+    line-height: 26px;
+    background: #FBFBFB;
+}
+
+h3.line {
+    position: relative;
+    text-indent: 65px;
+    color: #911E23;
+}
+
+h3.line:before {
+    position: absolute;
+    content: "";
+    width: 60px;
+    height: 2px;
+    background: #911E23;
+    top: 14px;
+    left: 0;
+}
+
+.warehouse-space ol {
+    padding: 25px 25px 25px 40px;
+    background: #FBFBFB;
+}
+
+.warehouse-space ol li {
+    margin-bottom: 5px;
+}
+
+.advantages-warehouse {
+    position: relative;
+}
+
+
+
+
+
+
+@media (min-width: 1200px) {
+    .offer-title {
+        font-size: 30px;
+        line-height: 39px;
+    }
+}
+
+@media (min-width: 992px) {
+    .types h2 {
+        margin: 120px 0 60px;
+    }
+
+    .banking-details-item.custom-margin {
+        margin-top: 42px;
+    }
+
+    .banking-details-item .bank-patent {
+        max-width: 266px;
+    }
+
+    .activity-carousel-wrap {
+        margin-right: 0;
+    }
+
+    .person-img {
+        position: absolute;
+        bottom: 0;
+        right: -195px;
+        margin-bottom: 0;
+    }
+
+    .notepad {
+        display: block;
+    }
+
+    .warehouse-space .line-right {
+        border-right: 2px solid #E3E3E3;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    .main-menu {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .menu-item {
+        flex: 1;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .menu-item:hover {
+        color: #ffffff;
+        background: #911E23;
+    }
+
+    .menu-item > .main-submenu {
+        position: absolute;
+        display: none;
+        width: 100%;
+        padding-top: 25px;
+        background: #FBFBFB;
+        top: 50px;
+        left: 0;
+    }
+
+    .menu-item:hover > .main-submenu {
+        display: block;
+    }
+
+    h2 {
+        font-size: 45px;
+        line-height: 58px;
+    }
+
+    h2 .red {
+        padding: 10px;
+        font-size: 35px;
+        line-height: 45px;
+    }
+
+    .main-banner:before,
+    .offers:before,
+    .vacancies-list:before,
+    .activity-video:before,
+    .concrete-carousel-block:before,
+    .about-project:before {
+        display: block;
+    }
+
+    .types h2 {
+        margin: 60px 0 60px;
+    }
+
+    .types .img-container {
+        display: block;
+        position: relative;
+        max-width: 440px;
+        max-height: 445px;
+    }
+
+    .types .left-col {
+        padding-right: 80px;
+    }
+
+    .types .img-item {
+        width: auto;
+    }
+
+    .types .small-img {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        width: 240px;
+        height: 262px;
+        left: -96px;
+        bottom: -50px;
+        background: #ffffff;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    }
+
+
+    .vacancy-salary {
+        margin-top: 0;
+    }
+
+    .vacancy-title,
+    .vacancy-salary {
+        font-size: 30px;
+        line-height: 39px;
+    }
+
+    .vacancy-context {
+        font-size: 30px;
+        line-height: 39px;
+    }
+
+    .order-form {
+        max-width: 350px;
+    }
+
+
+    .article {
+        margin-top: 100px;
+    }
+
+    .form-small-text {
+        width: 50%;
+    }
+
+
+
+
+}
+
+@media (min-width: 576px) {
+    .project-item {
+        text-align: left;
+    }
+
+
+}

@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+{% load my_filters %}
+{% load static %}
+{% block title %}{{ services.name }}{% endblock %}
+{% block metategi %}
+    <meta name="description" content="{{ services.seo_description }}">
+    <meta name="keywords" content="{{ services.seo_keywords }}">
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="{% url 'index' %}">Главная</a>
+            <span>{{ services.name }}</span>
+        </div>
+        <div class="d-md-flex d-block align-items-center">
+            <h2 class="col-md-7 p-0">{{ services.name }} палы
+                по России от {{ services.price }} руб/м<sup>2</sup></h2>
+            <div class="ml-auto text-left mt-3 mt-md-0">
+                <a href="#" class="button-calculation" data-toggle="modal" data-target="#orderModal">
+                    Заказать расчет
+                </a>
+            </div>
+        </div>
+        <div class="mt-5 main-banner">
+            <img src="{{ services.osv_image.url }}" class="img-fluid" alt="{{ services.osv_image.name }}">
+        </div>
+        <div class="concrete-floors-tech">
+            <h2>Технология
+                {{ services.name|inflect_name:'gent,sing' }} пола</h2>
+            <div class="row">
+                <div class="col-lg-2 col-md-5 mt-5">
+                    <h3>Основание</h3>
+                </div>
+                <div class="col-lg-4 col-md-7 mt-5">
+                    <div class="sf-content">
+                        {{ services.description_os }}
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-3 mt-lg-0 text-center">
+                    <img src="{{ services.images_os.url }}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+        <div class="concrete-carousel-block">
+            <div id="techCarousel" class="carousel-590 carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    {% for photos in services.slider_os_set.all %}
+                        <div class="carousel-item">
+                            <img src="{{ photos.img.url }}" class="img-fluid">
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row mt-3">
+                    <div class="col-2">
+                        <a href="#techCarousel" class="arrow left" data-slide="prev">
+                        </a>
+                    </div>
+                    <div class="col-8 carousel-nav">
+                        <div class=" carousel-indicators">
+                            {% for count in services.slider_os_set.count|times %}
+                                <span data-target="#techCarousel" data-slide-to="{{ count }}"
+                                      class="{% if forloop.first %}active{% endif %}"></span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-2 text-right">
+                        <a href="#techCarousel" class="arrow right" data-slide="next">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="reinforce" style="background-image: url('{{ services.images_two.url }}')">
+        <div class="container">
+            <div class="reinforce-block">
+                <h3>{{ services.title }}</h3>
+                <div class="sf-content">
+                    {{ services.description_two }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="reinforce-fibra">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <h3>{{ services.title_three }}</h3>
+                </div>
+                <div class="col-lg-6 col-md-8">
+                    <div class="row sf-content">
+                        <div class="col-md-6">
+                            {{ services.description_three_1 }}
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            {{ services.description_three_2 }}
+                        </div>
+                        <div class="red-frame mt-4">
+                            {{ services.description_three_3 }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5">
+            <img src="{{ services.images_three.url }}" class="img-fluid">
+        </div>
+        {#  Блок четыре #}
+        <div class="concreting">
+            <div class="row">
+                <div class="col-ld-3 col-md-4">
+                    <h3>{{ services.title_four }}</h3>
+                </div>
+                <div class="col-lg-6 col-md-8">
+                    <div class="row sf-content">
+                        <div class="col-md-6">
+                            {{ services.description_four_1 }}
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <div>
+                                {{ services.description_four_2 }}
+                            </div>
+                            <div class="red-frame mt-4">
+                                {{ services.description_four_3 }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="concretingCarousel" class="carousel-590 carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {% for photos in services.slider_four_set.all %}
+                    <div class="carousel-item">
+                        <img src="{{ photos.img.url }}" class="img-fluid">
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row mt-3">
+                <div class="col-2">
+                    <a href="#concretingCarousel" class="arrow left" data-slide="prev">
+                    </a>
+                </div>
+                <div class="col-8 carousel-nav">
+                    <div class=" carousel-indicators">
+                        {% for count in services.slider_four_set.count|times %}
+                            <span data-target="#concretingCarousel" data-slide-to="{{ count }}"
+                                  class="{% if forloop.first %}active{% endif %}"></span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-2 text-right">
+                    <a href="#concretingCarousel" class="arrow right" data-slide="next">
+                    </a>
+                </div>
+            </div>
+        </div>
+        {# Требования #}
+        <div class="advantages">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="advantages-title mx-3">
+                        {{ services.demand }}
+                    </div>
+                </div>
+                <div class="col-md-6 mt-3 mt-md-0">
+                    <ul class="advantages-list mx-3">
+                        {% for demand in services.demands_set.all %}
+                            <li>
+                                {{ demand.name }}
+                                {% if demand.description %}
+                                    <div class="sf-content">{{ demand.description }}</div>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {# Преимущества#}
+                <div class="col red-frame text-center mt-3">
+                    <div class="red-frame-title">
+                        Преимущества {{ services.name|inflect_name:'plur,gent' }} полов
+                    </div>
+                    <div class="d-md-flex   justify-content-center">
+                        {% for i in services.advantages_set.all %}
+                            <div class="plus-item">
+                                <img src="{{ i.img.url }}" class="img-fluid">
+                                <div>{{ i.name }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="examples-carousel">
+        <div class="container">
+            <h2 class="text-center">Для чего делают {{ services.name }} полы</h2>
+            <div id="exampleCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    {% for example in services.exampleslider_set.all %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ example.img.url }}" class="img-fluid">
+                        <h3 class="mt-3 pr-5">{{ example.name }}</h3>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="example-carousel-arrow">
+                    <a href="#exampleCarousel" class="arrow left" data-slide="prev">
+                    </a>
+                    <a href="#exampleCarousel" class="arrow right ml-4" data-slide="next">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'contact_us.html' %}
+    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Заказать расчёт</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="{% url 'add_order' %}" id="form_add_order">
+                    {% csrf_token %}
+                    <input type="hidden" name="service" value="{{ services.pk }}">
+                    <input class="form-field" type="text" placeholder="Ваше имя*" name="name">
+                    <input class="form-field" type="text" placeholder="Введите номер телефона*" name="phone">
+                    <button class="order-btn">Отправить заявку</button>
+                    <div class="sf-content form-small-text w-100 text-center mt-2 mx-auto">Нажимая кнопку вы соглашаетесь с правилами
+                        обработки персональных данных
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

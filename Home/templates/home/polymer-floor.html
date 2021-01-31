@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Полимерные полы{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="breadcrumbs">
+            <a href="#">Главная</a>
+            <a href="#">Вакансии</a>
+            <span>О компании</span>
+        </div>
+        <div class="d-md-flex d-block align-items-center">
+            <h2 class="col-md-7 p-0">Полимерные полы
+                по России от 400 руб/м<sup>2</sup></h2>
+            <div class="ml-auto text-left mt-3 mt-md-0">
+                <a href="#" class="button-calculation">
+                    Заказать расчет
+                </a>
+            </div>
+        </div>
+        <div class="mt-5 main-banner">
+            <img src="{% static 'photo/banner-4.png' %}" class="img-fluid">
+        </div>
+        <div class="concrete-floors-tech">
+            <h2>Область применения<br> полимерных полов</h2>
+        </div>
+        <div class="concrete-carousel-block">
+            <div class="row mt-5">
+                <div class="col-lg-3">
+                    <h3>Складские помещения</h3>
+                </div>
+                <div class="col-lg-7">
+                    <div id="polymerCarousel" class="carousel-590 carousel slide mx-auto" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{% static 'photo/conctere-tech-3.png' %}" class="img-fluid">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'photo/conctere-tech-3.png' %}" class="img-fluid">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'photo/conctere-tech-3.png' %}" class="img-fluid">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'photo/conctere-tech-3.png' %}" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2">
+                                <a href="#polymerCarousel" class="arrow left" data-slide="prev">
+                                </a>
+                            </div>
+                            <div class="col-8 carousel-nav">
+                                <div class=" carousel-indicators">
+                                    <span data-target="#polymerCarousel" data-slide-to="0" class="active"></span>
+                                    <span data-target="#polymerCarousel" data-slide-to="1"></span>
+                                    <span data-target="#polymerCarousel" data-slide-to="2"></span>
+                                    <span data-target="#polymerCarousel" data-slide-to="3"></span>
+                                </div>
+                            </div>
+                            <div class="col-2 text-right">
+                                <a href="#polymerCarousel" class="arrow right" data-slide="next">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-6 pl-0">
+                            <div class="advantages-title mx-3">
+                                Технические требования к бетонной смеси и бетону для устройства бетонных промышленных полов
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <ul class="advantages-list mx-3">
+                                <li>
+                                    Однородность
+                                    <div class="sf-content">отсутствие расслаиваемости</div>
+                                </li>
+                                <li>
+                                    Удобоукладываемость
+                                    <div class="sf-content">подвижность 8-12 см.</div>
+                                </li>
+                                <li>
+                                    Марка по прочности (класс)
+                                    <div class="sf-content">м300 (В22,5, В25)</div>
+                                </li>
+                                <li>
+                                    Низкое воздухововлечение
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 sf-content mt-3">
+                            В чистом виде бетонные покрытия для изготовления полов практически не применяются из-за их низкой
+                            износостойкости и значительного пыления. Для придания бетонному полу высоких эксплуатационных
+                            характеристик используют технологические приемы поверхностного (1-3 мм) упрочнения с помощью жидких
+                            или сухих составов на стадии устройства бетонного пола.
+                        </div>
+                        <div class="col-12 red-frame text-center mt-4">
+                            <div class="red-frame-title" >
+                                Преимущества бетонных полов
+                            </div>
+                            <div class="d-md-flex   justify-content-center">
+                                <div class="ad-item">
+                                    <img src="{% static 'img/advantage-1.png' %}" class="img-fluid">
+                                    <div>Термостойкость</div>
+                                </div>
+                                <div class="ad-item">
+                                    <img src="{% static 'img/advantage-2.png' %}" class="omg-fluid">
+                                    <div>Химстойкость</div>
+                                </div>
+                                <div class="ad-item">
+                                    <img src="{% static 'img/advantage-3.png' %}" class="omg-fluid">
+                                    <div>Экономичность</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="polymer-carousel-block">
+            <div class="row mt-5">
+                <div class="col-lg-3">
+                    <h3>Предприятия машиностроения </h3>
+                </div>
+                <div class="col-lg-7">
+                    <div id="polymerSecondaryCarousel" class="carousel-590 carousel slide mx-auto" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{% static 'photo/example-590.png' %}" class="img-fluid">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'photo/example-590.png' %}" class="img-fluid">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'photo/example-590.png' %}" class="img-fluid">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static 'photo/example-590.png' %}" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2">
+                                <a href="#polymerSecondaryCarousel" class="arrow left" data-slide="prev">
+                                </a>
+                            </div>
+                            <div class="col-8 carousel-nav">
+                                <div class=" carousel-indicators">
+                                    <span data-target="#polymerSecondaryCarousel" data-slide-to="0" class="active"></span>
+                                    <span data-target="#polymerSecondaryCarousel" data-slide-to="1"></span>
+                                    <span data-target="#polymerSecondaryCarousel" data-slide-to="2"></span>
+                                    <span data-target="#polymerSecondaryCarousel" data-slide-to="3"></span>
+                                </div>
+                            </div>
+                            <div class="col-2 text-right">
+                                <a href="#polymerSecondaryCarousel" class="arrow right" data-slide="next">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-6 pl-0">
+                            <div class="advantages-title mx-3">
+                                Технические требования к бетонной смеси и бетону для устройства бетонных промышленных полов
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-3 mt-md-0">
+                            <ul class="advantages-list mx-3">
+                                <li>
+                                    Однородность
+                                    <div class="sf-content">отсутствие расслаиваемости</div>
+                                </li>
+                                <li>
+                                    Удобоукладываемость
+                                    <div class="sf-content">подвижность 8-12 см.</div>
+                                </li>
+                                <li>
+                                    Марка по прочности (класс)
+                                    <div class="sf-content">м300 (В22,5, В25)</div>
+                                </li>
+                                <li>
+                                    Низкое воздухововлечение
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 sf-content mt-3">
+                            В чистом виде бетонные покрытия для изготовления полов практически не применяются из-за их низкой
+                            износостойкости и значительного пыления. Для придания бетонному полу высоких эксплуатационных
+                            характеристик используют технологические приемы поверхностного (1-3 мм) упрочнения с помощью жидких
+                            или сухих составов на стадии устройства бетонного пола.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="examples-carousel mt-80">
+        <div class="container">
+            <h2 class="text-center">Наши реализованные объекты</h2>
+            <div id="exampleCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'photo/example-1.png' %}" class="img-fluid">
+                        <h3 class="mt-3 pr-5">Торговые и выставочные залы</h3>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'photo/example-1.png' %}" class="img-fluid">
+                        <h3 class="mt-3 pr-5">Торговые и выставочные залы 2</h3>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'photo/example-1.png' %}" class="img-fluid">
+                        <h3 class="mt-3 pr-5">Торговые и выставочные залы 3</h3>
+                    </div>
+                </div>
+                <div class="example-carousel-arrow">
+                    <a href="#exampleCarousel" class="arrow left" data-slide="prev">
+                    </a>
+                    <a href="#exampleCarousel" class="arrow right ml-4" data-slide="next">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'contact_us.html' %}
+
+{% endblock %}

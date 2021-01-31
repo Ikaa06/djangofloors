@@ -1,0 +1,180 @@
+{% load my_filters %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'js/slick-1.8.1/slick/slick.css' %}"/>
+    <link rel="stylesheet" href="{% static 'fonts/TTFirsNeue/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/SFPro/stylesheet.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>{% block title %}Главная{% endblock %}</title>
+    {% block metategi %}{% endblock %}
+</head>
+
+
+<body>
+<header>
+    <div class="container">
+        <div class="burger-wrap d-md-none">
+            <a href="#" class="burger">
+                <img src="{% static 'img/burger.png' %}">
+            </a>
+        </div>
+        <div class="row align-items-center my-4">
+            <div class="col-lg-4 text-center text-lg-left d-none d-md-block order-1">
+                <a href="tel:{{ contact.phone }}" class="weight-500">{{ contact.phone|phone_set }}</a>
+{#                <a href="#" class="call-me">Заказать звонок</a>#}
+            </div>
+            <div class="col-lg-4 col-12 text-center order-md-first order-lg-2">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'img/logo.png' %}">
+                </a>
+            </div>
+            <div class="col-lg-4 text-center text-lg-right d-none d-md-block order-3">
+                <a href="mailto:{{ contact.email }}" class="weight-500">Связаться с нами по e-mail</a>
+            </div>
+        </div>
+        <div id="mainMenu" class="main-menu">
+            <a href="{% url 'about' %}" class="menu-item">О компании</a>
+            <div class="menu-item">
+                Услуги
+                <div class="main-submenu">
+                    {% for i in floor %}
+                        <a href="{% url 'concrete_floors' i.slug %}" class="menu-item">{{ i.name }} полы</a>
+                    {% endfor %}
+{#                    <a href="{% url 'polymer' %}" class="menu-item">Полимерные полы</a>#}
+                </div>
+            </div>
+            <a href="{% url 'ready_solutions' %}" class="menu-item">Готовые решения</a>
+            <a href="{% url 'ready_objects' %}" class="menu-item">Объекты</a>
+            <a href="{% url 'contacts' %}" class="menu-item">Контакты</a>
+        </div>
+    </div>
+</header>
+<main>
+{% block content %}
+{% endblock %}
+{% block contacts_us %}
+{% endblock %}
+<div class="contacts">
+        <div class="container">
+            <div class="d-md-flex d-block align-items-center contacts-header">
+                <h2 class="col-md-7 p-0">Контакты компании «Промышленные полы»</h2>
+                <div class="ml-auto text-left mt-3 mt-md-0">
+                    <a href="{{ contact.doc_bank.url }}" class="button-pdf">
+                        Скачать реквизиты в PDF
+                    </a>
+                </div>
+            </div>
+            <div class="row contacts-info">
+                <div class="col-md-4">
+                    <a href="tel:{{ contact.phone }}" class="tel">{{ contact.phone|phone_set }}</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="mailto:{{ contact.email }}" class="mail">{{ contact.email }}</a>
+                </div>
+                <div class="col-md-4">
+                    <span class="address">{{ contact.address }}</span>
+                </div>
+            </div>
+            <img src="{% static 'photo/map.png' %}" class="img-fluid">
+            <h2 class="mt-5">Реквизиты компании</h2>
+            <div class="banking-details">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="d-flex banking-details-item">
+                            <div>ИНН/КПП</div>
+                            <div class="ml-auto">{{ contact.inn }}/{{ contact.kpp }}</div>
+                        </div>
+                        <div class="d-flex banking-details-item">
+                            <div>Расчетный счет</div>
+                            <div class="ml-auto">{{ contact.payment }}</div>
+                        </div>
+                        <div class="d-flex banking-details-item">
+                            <div>Банк</div>
+                            <div class="ml-auto">{{ contact.bank }}</div>
+                        </div>
+                        <div class="d-flex banking-details-item">
+                            <div>ОГРН</div>
+                            <div class="ml-auto">{{ contact.ogrn }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex banking-details-item">
+                            <div class="bank-patent weight-500">Документ о патенте производства
+                                полов по новым технологиям</div>
+                            <div class="ml-auto text-nowrap">
+                                <a href="{{ contact.doc_potent.url }}">6.3 mb PDF</a>
+                            </div>
+                        </div>
+                        <div class="d-flex banking-details-item custom-margin">
+                            <div class="weight-500">Лицензии</div>
+                            <div class="ml-auto">
+                                <a href="{{ contact.doc_licenses.url }}">45 mb PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <div class="row text-center text-md-left">
+            <div class="col-lg-4 col-md-6 mt-3">
+                <img src="{% static 'img/logo-2.png' %}">
+                <div class="sf-content footer-text">Мы делаем промышленные полыпо всей России.<br>
+                    Сайт toping.ru – это не публичная оферта.
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <a href="#mainMenu" class="footer-menu-item">Услуги</a>
+                <a href="{% url 'vacancies' %}" class="footer-menu-item">Вакансии</a>
+                <a href="{% url 'contacts' %}" class="footer-menu-item">Контакты</a>
+            </div>
+            <div class="col-lg-3 mt-3 col-md-6">
+                <div class="weight-500">{{ contact.address }}</div>
+                <div class="weight-500 mt-3">Режим работы</div>
+                <div class="footer-description">Пн-Вс: с 9 до 21 (без выходных)</div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="tel:{{ contact.phone }}" class="footer-menu-item">{{ contact.phone|phone_set }}</a>
+                <div class="footer-description">Телефон горячей линии</div>
+                <a href="mailto:{{ contact.email }}" class="footer-menu-item">{{ contact.email }}</a>
+                <div class="footer-description">Электронная почта</div>
+            </div>
+        </div>
+        <div class="row footer-politic">
+            <div class="col-md-6 text-center text-md-left">
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+            <div class="col-md-6 text-center text-md-right">
+                <div class="footer-description">«Промышленные полы» 2020. Все права защищены.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="overlay"></div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static 'js/slick-1.8.1/slick/slick.min.js' %}"></script>
+<script src="{% static 'script.js' %}"></script>
+{% block script %}
+{% endblock %}
+</body>
+
+</html>

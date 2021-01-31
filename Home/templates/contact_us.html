@@ -1,0 +1,34 @@
+{% load my_filters %}
+{% load static %}
+
+<div class="contact-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <h2>Заполните заявку, и мы проконсультируем вас бесплатно</h2>
+                <form id="form_AdviseFree" method="post" action="{% url 'application' %}">
+                    {% csrf_token %}
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <input class="form-field" type="text" placeholder="Ваше имя*" name="name">
+                        </div>
+                        <div class="col-md-6">
+                            <input class="form-field" type="tel" placeholder="Введите номер телефона*" name="phone">
+                        </div>
+                    </div>
+                    <button class="order-btn">Отправить заявку</button>
+                    <div class="sf-content form-small-text text-center mt-2 mx-auto">Нажимая кнопку вы соглашаетесь
+                        с правилами
+                        обработки персональных данных
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-5">
+                <div class="notepad">
+                    <img src="{% static 'img/notepad.png' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

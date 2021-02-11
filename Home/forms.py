@@ -1,21 +1,28 @@
 from django import forms
+from snowpenguin.django.recaptcha3.fields import ReCaptchaField
 
 from .models import AdviseFree, Resume, OrderPayment
 
 
 class AdviseFreeForm(forms.ModelForm):
+    captcha = ReCaptchaField()
+
     class Meta:
         model = AdviseFree
-        fields = ('name', 'phone')
+        fields = ('name', 'phone', 'captcha')
 
 
 class ResumeFreeForm(forms.ModelForm):
+    captcha = ReCaptchaField()
+
     class Meta:
         model = Resume
-        fields = ('name', 'phone', 'url')
+        fields = ('name', 'phone', 'url', 'captcha')
 
 
 class OrderPaymentForm(forms.ModelForm):
+    captcha = ReCaptchaField()
+
     class Meta:
         model = OrderPayment
-        fields = ('name', 'phone', 'service')
+        fields = ('name', 'phone', 'service', 'captcha')

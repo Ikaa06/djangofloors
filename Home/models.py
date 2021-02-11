@@ -121,7 +121,7 @@ class Solutions(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('concrete_floors', kwargs={"slug": self.slug})
+        return reverse('ready_solution', kwargs={"slug": self.slug})
 
     class Meta:
         verbose_name = "Готовое решение"

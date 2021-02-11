@@ -1,5 +1,6 @@
 {% load my_filters %}
 {% load static %}
+{% load recaptcha3 %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -13,6 +14,8 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <title>{% block title %}Главная{% endblock %}</title>
     {% block metategi %}{% endblock %}
+    {% recaptcha_init %}
+    {% recaptcha_ready action_name='homepage' %}
 </head>
 
 
@@ -27,7 +30,7 @@
         <div class="row align-items-center my-4">
             <div class="col-lg-4 text-center text-lg-left d-none d-md-block order-1">
                 <a href="tel:{{ contact.phone }}" class="weight-500">{{ contact.phone|phone_set }}</a>
-{#                <a href="#" class="call-me">Заказать звонок</a>#}
+                {#                <a href="#" class="call-me">Заказать звонок</a>#}
             </div>
             <div class="col-lg-4 col-12 text-center order-md-first order-lg-2">
                 <a href="{% url 'index' %}">
@@ -46,7 +49,7 @@
                     {% for i in floor %}
                         <a href="{% url 'concrete_floors' i.slug %}" class="menu-item">{{ i.name }} полы</a>
                     {% endfor %}
-{#                    <a href="{% url 'polymer' %}" class="menu-item">Полимерные полы</a>#}
+                    {#                    <a href="{% url 'polymer' %}" class="menu-item">Полимерные полы</a>#}
                 </div>
             </div>
             <a href="{% url 'ready_solutions' %}" class="menu-item">Готовые решения</a>
@@ -56,11 +59,12 @@
     </div>
 </header>
 <main>
-{% block content %}
-{% endblock %}
-{% block contacts_us %}
-{% endblock %}
-<div class="contacts">
+    {% block content %}
+    {% endblock %}
+    {% block contacts_us %}
+    {% endblock %}
+    {# TODO убрать contacts рекфезиты #}
+    <div class="contacts">
         <div class="container">
             <div class="d-md-flex d-block align-items-center contacts-header">
                 <h2 class="col-md-7 p-0">Контакты компании «Промышленные полы»</h2>
@@ -81,45 +85,47 @@
                     <span class="address">{{ contact.address }}</span>
                 </div>
             </div>
-            <img src="{% static 'photo/map.png' %}" class="img-fluid">
-            <h2 class="mt-5">Реквизиты компании</h2>
-            <div class="banking-details">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="d-flex banking-details-item">
-                            <div>ИНН/КПП</div>
-                            <div class="ml-auto">{{ contact.inn }}/{{ contact.kpp }}</div>
-                        </div>
-                        <div class="d-flex banking-details-item">
-                            <div>Расчетный счет</div>
-                            <div class="ml-auto">{{ contact.payment }}</div>
-                        </div>
-                        <div class="d-flex banking-details-item">
-                            <div>Банк</div>
-                            <div class="ml-auto">{{ contact.bank }}</div>
-                        </div>
-                        <div class="d-flex banking-details-item">
-                            <div>ОГРН</div>
-                            <div class="ml-auto">{{ contact.ogrn }}</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="d-flex banking-details-item">
-                            <div class="bank-patent weight-500">Документ о патенте производства
-                                полов по новым технологиям</div>
-                            <div class="ml-auto text-nowrap">
-                                <a href="{{ contact.doc_potent.url }}">6.3 mb PDF</a>
-                            </div>
-                        </div>
-                        <div class="d-flex banking-details-item custom-margin">
-                            <div class="weight-500">Лицензии</div>
-                            <div class="ml-auto">
-                                <a href="{{ contact.doc_licenses.url }}">45 mb PDF</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aae23ba7052b0762f4d0f7f8b6d91c8e64b32d342ec773245f1699852a254afd9&amp;source=constructor"
+                    width="1120" height="420" frameborder="0" class="img-fluid"></iframe>
+            {#            <img src="{% static 'photo/map.png' %}" class="img-fluid">#}
+            {#            <h2 class="mt-5">Реквизиты компании</h2>#}
+            {#            <div class="banking-details">#}
+            {#                <div class="row">#}
+            {#                    <div class="col-md-6">#}
+            {#                        <div class="d-flex banking-details-item">#}
+            {#                            <div>ИНН/КПП</div>#}
+            {#                            <div class="ml-auto">{{ contact.inn }}/{{ contact.kpp }}</div>#}
+            {#                        </div>#}
+            {#                        <div class="d-flex banking-details-item">#}
+            {#                            <div>Расчетный счет</div>#}
+            {#                            <div class="ml-auto">{{ contact.payment }}</div>#}
+            {#                        </div>#}
+            {#                        <div class="d-flex banking-details-item">#}
+            {#                            <div>Банк</div>#}
+            {#                            <div class="ml-auto">{{ contact.bank }}</div>#}
+            {#                        </div>#}
+            {#                        <div class="d-flex banking-details-item">#}
+            {#                            <div>ОГРН</div>#}
+            {#                            <div class="ml-auto">{{ contact.ogrn }}</div>#}
+            {#                        </div>#}
+            {#                    </div>#}
+            {#                    <div class="col-md-6">#}
+            {#                        <div class="d-flex banking-details-item">#}
+            {#                            <div class="bank-patent weight-500">Документ о патенте производства#}
+            {#                                полов по новым технологиям</div>#}
+            {#                            <div class="ml-auto text-nowrap">#}
+            {#                                <a href="{{ contact.doc_potent.url }}">6.3 mb PDF</a>#}
+            {#                            </div>#}
+            {#                        </div>#}
+            {#                        <div class="d-flex banking-details-item custom-margin">#}
+            {#                            <div class="weight-500">Лицензии</div>#}
+            {#                            <div class="ml-auto">#}
+            {#                                <a href="{{ contact.doc_licenses.url }}">45 mb PDF</a>#}
+            {#                            </div>#}
+            {#                        </div>#}
+            {#                    </div>#}
+            {#                </div>#}
+            {#            </div>#}
         </div>
     </div>
 </main>

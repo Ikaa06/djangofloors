@@ -73,6 +73,7 @@ $("#form_AdviseFree").on("submit", function (e) {
                     timerProgressBar: true,
                     showConfirmButton: false
                 })
+            console.log(e.form)
         }
     })
 })

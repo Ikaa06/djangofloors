@@ -11,6 +11,7 @@ Pillow = "^8.1.0"
 django-fieldsets-with-inlines = "^0.6"
 pymorphy2 = "^0.9.1"
 django-debug-toolbar = "^3.2"
+django-recaptcha3 = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
 

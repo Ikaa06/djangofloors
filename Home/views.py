@@ -67,6 +67,11 @@ class concrete_floors(DetailView):
     template_name = 'home/concrete-floors.html'
     model = Services
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = OrderPaymentForm()
+        return context
+
 
 class vacancies(ListView):
     """ Вакансии """
@@ -90,6 +95,10 @@ class vacancy(DetailView):
     model = Vacancy
     template_name = 'home/vacancy.html'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = ResumeFreeForm()
+        return context
     # def get_queryset(self):
     #     return self.model.objects.prefetch_related('requirement', 'tasks_set')
 
@@ -151,6 +160,7 @@ class AdviseFreeView(View):
         else:
             response_data['status'] = False
             response_data['message'] = 'Ошибка'
+            response_data['form'] = form._errors
         return JsonResponse(response_data, safe=False)
 
 

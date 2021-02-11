@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'snowpenguin.django.recaptcha3',
     'fieldsets_with_inlines',
     'Home',
 ]
@@ -104,6 +105,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+RECAPTCHA_PRIVATE_KEY = '6LedSlQaAAAAADRtHlsm49ON6xx4z9mIcAEidR_W'
+RECAPTCHA_PUBLIC_KEY = '6LedSlQaAAAAAKaNNmsUzACZDP96NYI92mUUcWwA'
+RECAPTCHA_DEFAULT_ACTION = 'generic'
+RECAPTCHA_SCORE_THRESHOLD = 0.5
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'

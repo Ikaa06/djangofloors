@@ -231,6 +231,7 @@
                     <input type="hidden" name="service" value="{{ services.pk }}">
                     <input class="form-field" type="text" placeholder="Ваше имя*" name="name">
                     <input class="form-field" type="text" placeholder="Введите номер телефона*" name="phone">
+                    {{ form.captcha }}
                     <button class="order-btn">Отправить заявку</button>
                     <div class="sf-content form-small-text w-100 text-center mt-2 mx-auto">Нажимая кнопку вы соглашаетесь с правилами
                         обработки персональных данных

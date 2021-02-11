@@ -1,6 +1,6 @@
 {% load my_filters %}
 {% load static %}
-
+{# TODO капчу  #}
 <div class="contact-us">
     <div class="container">
         <div class="row">
@@ -15,6 +15,7 @@
                         <div class="col-md-6">
                             <input class="form-field" type="tel" placeholder="Введите номер телефона*" name="phone">
                         </div>
+                        {{ AdviseForm.captcha }}
                     </div>
                     <button class="order-btn">Отправить заявку</button>
                     <div class="sf-content form-small-text text-center mt-2 mx-auto">Нажимая кнопку вы соглашаетесь

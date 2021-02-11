@@ -55,6 +55,7 @@ class ServicesAdmin(FieldsetsInlineMixin, admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_display = ("name", 'slug')
     save_on_top = True
+    save_as = True
     fieldsets_with_inlines = [
         ('Начало', {
             "fields": ("name", 'slug', 'price', "osv_image",)
@@ -156,7 +157,6 @@ class AdviseFree(admin.ModelAdmin):
     list_editable = ('state',)
     readonly_fields = ('name', 'phone', 'data',)
     list_filter = ('state',)
-
     def has_add_permission(self, request):
         return False
 
@@ -209,6 +209,7 @@ class VacancyAdmin(admin.ModelAdmin):
     list_editable = ('state',)
     inlines = [RequirementInline, TasksInline, ConditionsInline]
     save_on_top = True
+    save_as = True
     fields = ("name", 'slug', 'price', 'description', "state",)
 
 
@@ -271,6 +272,7 @@ class SolutionsAdmin(FieldsetsInlineMixin, admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     list_display = ("title", 'description')
     save_on_top = True
+    save_as = True
     fieldsets_with_inlines = [
         ('Начало', {
             "fields": ("title", 'slug', 'price', "images_png", 'description', 'images_fon')
@@ -328,6 +330,7 @@ class ObjectAdmin(FieldsetsInlineMixin, admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_display = ("name", 'description')
     save_on_top = True
+    save_as = True
     fieldsets_with_inlines = [
         ('На старице со списком', {
             "fields": ("name", 'slug', 'address', "square", 'description', 'images')

@@ -1,7 +1,7 @@
 from django import forms
 from snowpenguin.django.recaptcha3.fields import ReCaptchaField
 
-from .models import AdviseFree, Resume, OrderPayment
+from .models import AdviseFree, Resume, OrderPayment, OrderPaymentObject
 
 
 class AdviseFreeForm(forms.ModelForm):
@@ -25,4 +25,12 @@ class OrderPaymentForm(forms.ModelForm):
 
     class Meta:
         model = OrderPayment
+        fields = ('name', 'phone', 'service', 'captcha')
+
+
+class OrderPaymentObjectForm(forms.ModelForm):
+    captcha = ReCaptchaField()
+
+    class Meta:
+        model = OrderPaymentObject
         fields = ('name', 'phone', 'service', 'captcha')

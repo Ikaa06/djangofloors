@@ -20,7 +20,7 @@
 
 
 <body>
-<header>
+<header class="header">
     <div class="container">
         <div class="burger-wrap d-md-none">
             <a href="#" class="burger">
@@ -34,7 +34,7 @@
             </div>
             <div class="col-lg-4 col-12 text-center order-md-first order-lg-2">
                 <a href="{% url 'index' %}">
-                    <img src="{% static 'img/logo.png' %}">
+                    <img src="{% static 'img/logo.svg' %}">
                 </a>
             </div>
             <div class="col-lg-4 text-center text-lg-right d-none d-md-block order-3">
@@ -44,7 +44,9 @@
         <div id="mainMenu" class="main-menu">
             <a href="{% url 'about' %}" class="menu-item">О компании</a>
             <div class="menu-item">
-                Услуги
+                <div class="with-submenu">Услуги
+                    <i class="bi bi-caret-down-fill"></i>
+                </div>
                 <div class="main-submenu">
                     {% for i in floor %}
                         <a href="{% url 'concrete_floors' i.slug %}" class="menu-item">{{ i.name }} полы</a>
@@ -86,7 +88,8 @@
                 </div>
             </div>
             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aae23ba7052b0762f4d0f7f8b6d91c8e64b32d342ec773245f1699852a254afd9&amp;source=constructor"
-                    width="1120" height="420" frameborder="0" class="img-fluid"></iframe>
+                    width="100%" height="420" frameborder="0">
+            </iframe>
             {#            <img src="{% static 'photo/map.png' %}" class="img-fluid">#}
             {#            <h2 class="mt-5">Реквизиты компании</h2>#}
             {#            <div class="banking-details">#}
@@ -133,7 +136,7 @@
     <div class="container">
         <div class="row text-center text-md-left">
             <div class="col-lg-4 col-md-6 mt-3">
-                <img src="{% static 'img/logo-2.png' %}">
+                <img src="{% static 'img/logo-2.svg' %}">
                 <div class="sf-content footer-text">Мы делаем промышленные полыпо всей России.<br>
                     Сайт toping.ru – это не публичная оферта.
                 </div>

@@ -373,4 +373,21 @@ class TypeFloor(models.Model):
     class Meta:
         verbose_name = 'Промышленный пол'
         verbose_name_plural = 'Виды промышленных полов'
+
+
 # конец
+
+class OrderPaymentObject(models.Model):
+    """Форма Заказа расчета"""
+    service = models.ForeignKey(Object, verbose_name="Объект", on_delete=models.CASCADE)
+    name = models.CharField(verbose_name='Имя', max_length=200)
+    phone = models.CharField(verbose_name='Телефон', max_length=25)
+    data = models.DateTimeField(verbose_name='Время запроса', auto_now=True)
+    state = models.BooleanField(verbose_name='Провели консультацию', default=False)
+
+    def __str__(self):
+        return f"Заказ расчета от {self.name}"
+
+    class Meta:
+        verbose_name = "Заказа расчета объект"
+        verbose_name_plural = "Заказы расчета объект"

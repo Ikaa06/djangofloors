@@ -16,6 +16,7 @@ urlpatterns = [
     path('object/<slug:slug>', views.ready_object.as_view(), name='ready_object'),
     path('add_application', views.AdviseFreeView.as_view(), name='application'),
     path('add_resume', views.ResumeFreeView.as_view(), name='add_resume'),
-    path('add_order', views.OrderPaymentView.as_view(), name='add_order')
+    path('add_order', views.OrderPaymentView.as_view(), name='add_order'),
+    path('add_order_object', views.OrderPaymentObjectView.as_view(), name='add_order_object')
 
 ]

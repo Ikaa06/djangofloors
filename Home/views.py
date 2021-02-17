@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.views.generic import ListView, DetailView
 from django.views.generic.base import View
 
-from Home.forms import AdviseFreeForm, ResumeFreeForm, OrderPaymentForm
+from Home.forms import AdviseFreeForm, ResumeFreeForm, OrderPaymentForm, OrderPaymentObjectForm
 from Home.models import Services, Vacancy, Solutions, Object, TypeFloor
 
 
@@ -143,8 +143,10 @@ class ready_object(DetailView):
     model = Object
     template_name = 'home/object.html'
 
-    # def get_queryset(self):
-    #     return
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = ResumeFreeForm()
+        return context
 
 
 class AdviseFreeView(View):
@@ -186,6 +188,22 @@ class OrderPaymentView(View):
     def post(self, request):
         response_data = {}
         form = OrderPaymentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            response_data['status'] = True
+            response_data['message'] = 'Спасибо'
+        else:
+            response_data['status'] = False
+            response_data['message'] = 'Ошибка'
+        return JsonResponse(response_data, safe=False)
+
+
+class OrderPaymentObjectView(View):
+    """Форма Заказа расчета"""
+
+    def post(self, request):
+        response_data = {}
+        form = OrderPaymentObjectForm(request.POST)
         if form.is_valid():
             form.save()
             response_data['status'] = True

@@ -53,7 +53,9 @@
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3 mt-md-0 text-center text-md-right">
-                                <img src="{{ object.images.url }}" class="img-fluid">
+                                <a href="{{object.get_absolute_url}}">
+                                    <img src="{{ object.images.url }}" class="img-fluid">
+                                </a>
                             </div>
                         </div>
                     </div>

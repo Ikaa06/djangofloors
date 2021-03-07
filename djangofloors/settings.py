@@ -111,7 +111,7 @@ RECAPTCHA_PUBLIC_KEY = '6LedSlQaAAAAAKaNNmsUzACZDP96NYI92mUUcWwA'
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 # STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static"), ]

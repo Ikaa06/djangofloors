@@ -19,21 +19,22 @@
             <div class="row">
                 {% for solution in solutions_list %}
                     <div class="col-lg-6 mt-4">
-                        <div class="offer-item">
-                            <div class="row">
-                                <div class="col-sm-7">
-                                    <div class="d-flex flex-column h-100">
-                                        <a href="{% url 'ready_solution' solution.slug %}"
-                                           class="offer-title text-center text-sm-left">{{ solution.title }}</a>
-                                        <div class="sf-content mt-auto text-center text-sm-left">{{ solution.description }}
+                        <a href="{% url 'ready_solution' solution.slug %}">
+                            <div class="offer-item">
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <div class="d-flex flex-column h-100">
+                                            <p class="offer-title text-center text-sm-left">{{ solution.title }}</p>
+                                            <div class="sf-content mt-auto text-center text-sm-left">{{ solution.description }}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-5 text-center text-sm-right mt-3 mt-sm-0">
-                                    {{ solution.images_png|safe }}
+                                    <div class="col-sm-5 text-center text-sm-right mt-3 mt-sm-0">
+                                        {{ solution.images_png|safe }}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 {% endfor %}
             </div>

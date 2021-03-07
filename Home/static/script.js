@@ -139,3 +139,23 @@ $("#form_add_order_object").on("submit", function (e) {
         }
     })
 })
+
+$("body").on('click', '[href*="#"]', function(e){
+    var fixed_offset = 100;
+    $('html,body').stop().animate({ scrollTop: $(this.hash).offset().top - fixed_offset }, 1000);
+    e.preventDefault();
+  });
+const btn_on_top = document.querySelector(".btn_on_top")
+const  trackScroll=()=> {
+    let scrolled = window.pageYOffset;
+    let coords = document.documentElement.clientHeight;
+
+    if (scrolled > coords) {
+        console.log(scrolled);
+        btn_on_top.classList.remove('d-none');
+    }
+    if (scrolled < coords) {
+        btn_on_top.classList.add('d-none');
+    }
+}
+window.addEventListener('scroll', trackScroll);

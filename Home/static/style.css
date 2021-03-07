@@ -66,7 +66,22 @@ main {
     font-size: 12px;
     margin-left: 5px;
 }
-
+.btn_on_top{
+    position: fixed;
+    right: 5px;
+    bottom: 130px;
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    background: #434049;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+.btn_on_top span{
+    color: #FBFBFB;
+}
 .main-menu {
     display: none;
     position: fixed;
@@ -229,7 +244,10 @@ a.menu-item:hover {
     transition-duration: .6s;
     transition-property: opacity;
 }
-
+.carousel-inner .carousel-item img{
+    display: block;
+    margin: 0 auto;
+}
 .carousel-fade .carousel-item.active,
 .carousel-fade .carousel-item-next.carousel-item-left,
 .carousel-fade .carousel-item-prev.carousel-item-right {
@@ -970,7 +988,7 @@ footer a:hover {
     border-radius: 10px;
 }
 
-.ad-item {
+.plus-item{
     margin: 35px 20px 0;
 }
 

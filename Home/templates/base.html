@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="{% static 'logo.ico' %}" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'js/slick-1.8.1/slick/slick.css' %}"/>
@@ -20,7 +21,7 @@
 
 
 <body>
-<header id="top_screen" class="header">
+<header class="header">
     <div class="container">
         <div class="burger-wrap d-md-none">
             <a href="#" class="burger">
@@ -64,28 +65,41 @@
                 </div>
             </div>
 
-{#            #}
+            {#            #}
             <div class="menu-item">
                 <div class="with-submenu">Готовые решения
                     <i class="bi bi-caret-down-fill"></i>
                 </div>
                 <div class="main-submenu">
-                <a href="{% url 'ready_solutions' %}" class="menu-item" >Все</a>
+                    <a href="{% url 'ready_solutions' %}" class="menu-item">Все</a>
                     {% for i in solutions_header %}
                         <a href="{% url 'ready_solution' i.slug %}" class="menu-item">{{ i.title }}</a>
                     {% endfor %}
 
                 </div>
             </div>
-            <a href="{% url 'ready_objects' %}" class="menu-item">Объекты</a>
+
+            {#            <a href="{% url '' %}" class="menu-item"></a>#}
+            <div class="menu-item">
+                <div class="with-submenu">Объекты
+                    <i class="bi bi-caret-down-fill"></i>
+                </div>
+                <div class="main-submenu">
+                    <a href="{% url 'ready_objects' %}" class="menu-item">Все</a>
+                    {% for i in object_header %}
+                        <a href="{% url 'ready_object' i.slug %}" class="menu-item">{{ i.name }}</a>
+                    {% endfor %}
+
+                </div>
+            </div>
             <a href="{% url 'contacts' %}" class="menu-item">Контакты</a>
         </div>
     </div>
 </header>
-<div class="btn_on_top">
+<div class="btn_on_top d-none">
     <a href="#top_screen"><span class="fa fa-arrow-up"></span></a>
 </div>
-<main>
+<main id="top_screen">
     {% block content %}
     {% endblock %}
     {% block contacts_us %}

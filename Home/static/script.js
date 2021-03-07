@@ -151,7 +151,6 @@ const  trackScroll=()=> {
     let coords = document.documentElement.clientHeight;
 
     if (scrolled > coords) {
-        console.log(scrolled);
         btn_on_top.classList.remove('d-none');
     }
     if (scrolled < coords) {
